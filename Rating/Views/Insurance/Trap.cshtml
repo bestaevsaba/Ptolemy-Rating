@@ -1,0 +1,49 @@
+﻿@model Person
+
+<form method="post">
+    <div>
+        <h3>Добавить нового клиента</h3>
+    </div>
+
+    <div class="text-danger" font-weight-bold asp-validation-summary="All"></div>
+    <div class="row">
+        <div class="col-6">
+            <label asp-for="Name">Name</label><br />
+            <input class="text" asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <label asp-for="Age">Age</label><br />
+            <input class="number" min="18" value="18" asp-for="Age" />
+            <span asp-validation-for="Age"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label asp-for="Type">Type</label><br />
+            <form>
+                <p><input list="type"></p>
+                <datalist id="type">
+                    <option>Несчастные случаи</option>
+                    <option>Потеря работы</option>
+                    <option>Безмозглие</option>
+                </datalist>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label asp-for="MonthlyPay">MonthlyPay</label><br />
+            <input type="number" class="form-control" min="1000" value="1000" asp-for="MonthlyPay" />
+            <span asp-validation-for="MonthlyPay"></span>
+        </div>
+    </div>
+
+    <div>
+        <button type="submit" asp-controller="Insurance" asp-action="Trap">Создать</button>
+    </div>
+
+</form>
